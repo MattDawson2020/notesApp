@@ -1,3 +1,7 @@
+THE DREAM TEAM CORPORATION'S NOTEAPP
+*** Where people start to notice the notes you're notating ***
+
+
 User story 1: 
 
 ```
