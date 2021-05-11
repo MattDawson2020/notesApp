@@ -14,76 +14,43 @@
 //this doesnt work with multiple inputs
 
 // LEVEL ONE- simple tests. these matchers let you feed in individual functions/ results along with expectations to get a pass or fail message
-inputMatch = (testName, inputFunction, input, expectedOutput) => {
-  result = inputFunction(input)
-  if(result === expectedOutput) {
-      return `${testName}: Passed!` 
-  } else {
-      return `${testName}: Failed!` 
-  }
-}
-// inputMatch("This is a test name", testFunction, "thing", "This is a thing")
-// output "This is a test name: Passed! || This is a test name: Failed!"
 
 
 //result match lets you feed in more complex functions, you save a function to a variable and feed it in
+
 resultMatch = (testName, inputResult, expectedOutput) => {
   if(inputResult === expectedOutput) {
       return `${testName}: Passed!` 
   } else {
-      return `${testName}: Failed!` 
+      return `${testName}: Failed! Expected output [${expectedOutput}] \nActual output [${inputResult}]` 
   }
 }
 // result = testFunction(input1, input2, input3)
 //resultMatch("This is a different test", result, `Outcome is ${input1}, ${input2} and ${input3}`)
 // output "This is a different test: Passed! || This is a different test: Failed!"
 
-inputContain = (testName, inputResult, expectedOutput) => {
-  if(inputResult.includes(expectedOutput)) {
-      return `${testName}: Passed!` 
-  } else {
-      return `${testName}: Failed!` 
-  }
-}
 
 resultContain = (testName, inputResult, expectedOutput) => {
   if(inputResult.includes(expectedOutput)) {
       return `${testName}: Passed!` 
   } else {
-      return `${testName}: Failed!` 
+      return `${testName}: Failed! Expected output [${expectedOutput}] \nActual output [${inputResult}]` 
   }
 }
 // similar to above but check if result includes expected output
 
-inputNotMatch = (testName, inputFunction, input, expectedOutput) => {
-  result = inputFunction(input)
-  if(result !== expectedOutput) {
-      return `${testName}: Passed!` 
-  } else {
-      return `${testName}: Failed!` 
-  }
-}
 
 resultNotMatch = (testName, inputResult, expectedOutput) => {
   if(inputResult !== expectedOutput) {
       return `${testName}: Passed!` 
   } else {
-      return `${testName}: Failed!` 
+      return `${testName}: Failed! Expected output [${expectedOutput}] \nActual output [${inputResult}]` 
   }
 }
 // these two let you check for a mismatch/ expecting to not match
 
 let testSuite = []
 // array lets you store tests and call them all at once later, name / where it is declared is somwhat irelevent
-
-
-//lets you store a test as a hash, with the input and function separately, the runTest and testRunner functions unpack the hashes and run the tests
-//NEEDS THE APPROPRIATE INPUT MATCHER
-inputHash = (testType, testName, inputFunction, input, expectedOutput) => {
-  return {test: testType, name: testName, function: inputFunction, input: input, expectation: expectedOutput}
-}
-// test1 = inputHash(basicMatch, "It can create a message", greetingMessage, "Phil", "Hello Phil, are you ready to party?")
-
 
 //for more complicated functions, save the result to a variable and put into the hash instead of function and inputs
 //NEEDS THE APPROPRIATE RESULTS MATCHER
@@ -104,12 +71,7 @@ displayTest = (test) => {
   console.log(test)
   console.log(test.test)
   console.log(test.name)
-  if( test.result) {
-    console.log(test.result)
-  } else {
-    console.log(test.function)
-    console.log(test.input)
-  };
+  console.log(test.result)
   console.log(test.expectation)
 };
 
@@ -123,11 +85,7 @@ testRunner = (testSuite) => {
 // works by checking if the test has a result attribute, which is only assigned on the result hash type
 // once it knows which type it chooses a branch, test.test calls the test attribute (the function name), and the other attributes pass the arguments to the function
 runTest = (test) => {
-  if(test.result) {
-    output = test.test(test.name, test.result, test.expectation)
-  } else {
-    output = test.test(test.name, test.function, test.input, test.expectation)
-  };
+  output = test.test(test.name, test.result, test.expectation)
   console.log(output)
 };
 //message = greetingMessage("Phil")
