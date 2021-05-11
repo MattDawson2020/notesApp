@@ -20,9 +20,9 @@
 
 resultMatch = (testName, inputResult, expectedOutput) => {
   if(inputResult === expectedOutput) {
-      return `${testName}: Passed!` 
+    return `${testName}: Passed!` 
   } else {
-      return `${testName}: Failed! Expected output [${expectedOutput}] \nActual output [${inputResult}]` 
+    throw new Error(`${testName}: Failed! Expected output [${expectedOutput}] \nActual output [${inputResult}]`)
   }
 }
 // result = testFunction(input1, input2, input3)
@@ -32,19 +32,18 @@ resultMatch = (testName, inputResult, expectedOutput) => {
 
 resultContain = (testName, inputResult, expectedOutput) => {
   if(inputResult.includes(expectedOutput)) {
-      return `${testName}: Passed!` 
+    return `${testName}: Passed!` 
   } else {
-      return `${testName}: Failed! Expected output [${expectedOutput}] \nActual output [${inputResult}]` 
-  }
+    throw new Error(`${testName}: Failed! Expected output [${expectedOutput}] \nActual output [${inputResult}]`)  }
 }
 // similar to above but check if result includes expected output
 
 
 resultNotMatch = (testName, inputResult, expectedOutput) => {
   if(inputResult !== expectedOutput) {
-      return `${testName}: Passed!` 
+    return `${testName}: Passed!` 
   } else {
-      return `${testName}: Failed! Expected output [${expectedOutput}] \nActual output [${inputResult}]` 
+    throw new Error(`${testName}: Failed! Expected output [${expectedOutput}] \nActual output [${inputResult}]`) 
   }
 }
 // these two let you check for a mismatch/ expecting to not match
