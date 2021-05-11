@@ -10,8 +10,11 @@
 <body>
   <div class = 'wrapper'>
     <h1>NoteApp: write down your ideas</h1>
-    <textarea id='inputBox' name='inputBox' rows='5' cols='33'> What's on your mind? </textarea> <br>
-    <input type="submit"> 
+    <h3>Title</h3>
+    <input type="text" id='titleBox' name='titleBox' placeholder='Give your note a title'></input> <br>
+    <br>
+    <textarea id='bodyBox' name='bodyBox' rows='5' cols='33'> What's on your mind? </textarea> <br>
+    <input type="submit" id="submitButton"></input>
     <div class="previous_notes">
       <a href="#">Note from yesterday</a>
       <a href="#">Note from tomorrow</a>
@@ -25,4 +28,5 @@
   <script src="./src/noteList.js" ></script>
   <script src="./spec/noteSpec.js" ></script>
   <script src="./spec/noteListSpec.js" ></script>
+  <script src="./interface.js" ></script>
 </html>
