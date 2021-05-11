@@ -8,5 +8,11 @@ let noteList1 = new NoteList();
 let noteListTest1 = resultHash("it has an array", noteList1.notes, resultMatch, [])
 addTest(noteListTestSuite, noteListTest1)
 
+ 
+let pushNote = new Note();
+let pushNoteList = new NoteList();
+pushNoteList.storeNote(pushNote)
+let pushArrayTest = resultHash("it can push into an array", pushNoteList.notes, resultMatch, [pushNote])
+addTest(noteListTestSuite, pushArrayTest)
 
 testRunner(noteTestSuite);

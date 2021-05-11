@@ -7,10 +7,6 @@ class Note {
 
 };
 
-// storeNote(note) {
-//   this.notes.push(note)
-// }
-
 // notes = [
 
 // ]
