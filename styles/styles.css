@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  text-align: center;
+  margin-top: 3em;
+}
+
+h1 {
+  color: rgb(238, 241, 21);
+}
+
+textarea {
+  background-color: rgba(253, 255, 152, 20%);
+}
+
+.previous_notes {
+  background-color: rgb(238, 221, 68);
+  padding: 2em;
+  max-width: 15em;
+  margin: 0 auto;
+  border-radius: 20px;
+  border: 2px solid black;
+}
+
+.previous_notes, a {
+  display: block;
+  margin-top: 1em;
+}
