@@ -4,10 +4,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="./styles/styles.css">
+  <title>NoteApp</title>
 </head>
 <body>
-  <h1>Page Loaded</h1>
+  <div class = 'wrapper'>
+    <h1>NoteApp: write down your ideas</h1>
+    <textarea id='inputBox' name='inputBox' rows='5' cols='33'> What's on your mind? </textarea> <br>
+    <input type="submit"> 
+    <div class="previous_notes">
+      <a href="#">Note from yesterday</a>
+      <a href="#">Note from tomorrow</a>
+      <a href="#">Note from yesteryear</a>
+      <a href="#">Note from yomamashouse</a>
+    </div>
+  </div>
 </body>
   <script src="./spec/testSpecHelper.js" ></script>
   <script src="./src/note.js" ></script>
