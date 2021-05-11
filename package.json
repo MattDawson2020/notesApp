@@ -1,0 +1,22 @@
+{
+  "name": "notes_app",
+  "version": "1.0.0",
+  "description": "notes app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dominicmeddick/notes_app.git"
+  },
+  "author": "phil smithies",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dominicmeddick/notes_app/issues"
+  },
+  "homepage": "https://github.com/dominicmeddick/notes_app#readme",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}

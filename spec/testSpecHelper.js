@@ -8,6 +8,14 @@ resultMatch = (testName, inputResult, expectedOutput) => {
   }
 }
 
+sizeMatch = (testName, inputResult, expectedOutput) => {
+  if(inputResult.length === expectedOutput) {
+    return `${testName}: Passed!` 
+  } else {
+    throw new Error(`${testName}: Failed! \nExpected output [${expectedOutput}] \nActual output [${inputResult}]`)
+  }
+}
+
 resultContain = (testName, inputResult, expectedOutput) => {
   if(inputResult.includes(expectedOutput)) {
     return `${testName}: Passed!` 
