@@ -6,11 +6,3 @@ class Note {
   };
 
 };
-
-// notes = [
-
-// ]
-
-// return this.note
-
-// interface.js file can load in precreated notes in place of a database
