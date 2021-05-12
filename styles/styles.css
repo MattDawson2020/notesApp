@@ -29,3 +29,7 @@ textarea {
   display: block;
   margin-top: 1em;
 }
+
+.not-visible {
+  display: none;
+}
