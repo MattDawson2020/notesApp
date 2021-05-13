@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("submitButton").addEventListener("click", function() {
     let title = document.getElementById("titleBox").value;
     let body = document.getElementById("bodyBox").value;
-    const note = new Note(title, body);
+    // const note = new Note(title, body);
+    createNote(title, body);
     noteList.storeNote(note);
     document.getElementById("titleBox").value = '';
     document.getElementById("bodyBox").value = '';
@@ -45,3 +46,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 });
+

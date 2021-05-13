@@ -33,6 +33,7 @@
 
       function showCurrentNote() {
         showSingleNote(getNoteByTitle(window.location));
+        console.log(window.location)
       }
 
       function getNoteByTitle(location) {
@@ -42,7 +43,7 @@
       function showSingleNote(note) {
         // note = createFunction
         document.getElementById('singleNote')
-                .innerHTML = "test"
+                .innerHTML = `${note}`
                 // .appendChild
       }
     </script>
