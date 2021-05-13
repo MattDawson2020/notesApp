@@ -11,9 +11,7 @@ addTest(noteListTestSuite, noteListTest1)
  
 let pushNote = new Note();
 let pushNoteList = new NoteList();
-console.log(pushNoteList.notes)
 let testingTesting = pushNoteList.storeNote(pushNote);
-console.log(pushNoteList.notes)
 let pushArrayTest = resultHash("it can push into an array", pushNoteList.notes, resultContain, pushNote)
 addTest(noteListTestSuite, pushArrayTest)
 

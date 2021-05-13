@@ -13,26 +13,28 @@ class NoteList {
   }
 
   createNote(title, body) {
-    let title = title
-    let body = body
-    const note = new Note(title, body, index++);
+    const note = new Note(title, body , this.index++);
+    return note
   }
 
-  createDiv(){
-    let noteTitle = document.createElement('h3')
-    let noteBody = document.createElement('p')
-    let div = document.createElement('div');
-    let link = document.createElement('a')
+  // createDiv(){
+  //   let noteTitle = document.createElement('h3')
+  //   let noteBody = document.createElement('p')
+  //   let div = document.createElement('div');
+  //   let link = document.createElement('a')
+  // }
 
-    noteTitle.textContent = note.title
-      noteBody.textContent = note.body
-      link.setAttribute('href', `#${note.title}`)
-      link.innerText = "Link"
-      div.appendChild(noteTitle)
-      div.appendChild(noteBody)
-      div.appendChild(link)
-      div.style['backgroundColor'] = 'yellow'
-  }
+  // setDiv() {
+  //   noteTitle.textContent = note.title
+  //   noteBody.textContent = note.body
+  //   // determine link ref from where you create
+  //   link.setAttribute('href', `#${note.title}`)
+  //   link.innerText = "Link"
+  //   div.appendChild(noteTitle)
+  //   div.appendChild(noteBody)
+  //   div.appendChild(link)
+  //   div.style['backgroundColor'] = 'yellow'
+  // }
 }
 
 
