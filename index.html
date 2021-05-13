@@ -17,12 +17,35 @@
     <input type="submit" id="submitButton"></input>
     <input type="button" id="showNotes" value="Show All Notes"></input>
     <div id="showNotesContainer"></div>
-    <div class="previous_notes">
+    <!-- <div class="previous_notes">
       <a href="#">Yesterday</a>
       <a href="#">All my troubles</a>
       <a href="#">Seemed</a>
       <a href="#">So far away</a>
-    </div>
+    </div> -->
+    <div id ="singleNote"></div>
+    <script >
+      expandSelectedNote();
+
+      function expandSelectedNote(){
+        window.addEventListener("hashchange", showCurrentNote);
+      }
+
+      function showCurrentNote() {
+        showSingleNote(getNoteByTitle(window.location));
+      }
+
+      function getNoteByTitle(location) {
+        return location.hash.split('#')[1];
+      }
+      
+      function showSingleNote(note) {
+        // note = createFunction
+        document.getElementById('singleNote')
+                .innerHTML = "test"
+                // .appendChild
+      }
+    </script>
   </div>
 </body>
   <script src="./spec/testSpecHelper.js" ></script>

@@ -20,12 +20,16 @@ document.addEventListener("DOMContentLoaded", function() {
     let noteTitle = document.createElement('h3')
     let noteBody = document.createElement('p')
     let div = document.createElement('div');
+    let link = document.createElement('a')
 
     function hideFunction(note) {
       noteTitle.textContent = note.title
       noteBody.textContent = note.body
+      link.setAttribute('href', `#${note.title}`)
+      link.innerText = "Link"
       div.appendChild(noteTitle)
       div.appendChild(noteBody)
+      div.appendChild(link)
       div.style['backgroundColor'] = 'yellow'
   
       showNotesContainer.classList.add("not-visible")
