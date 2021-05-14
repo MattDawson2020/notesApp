@@ -61,14 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
       console.log(`div made ${note.body}`)
     }
 
-
-  
-    // let emojiText = ":fire: is on fire";
-  
-    // let emojiReturn = data.emojified_text
-    // getEmojiData(emojiText);
     showNotesContainer.classList.add("not-visible")
-    // notesAvailable.forEach(createDiv)
   });
 
   document.getElementById("showNotes").addEventListener('click', function() {
@@ -117,11 +110,6 @@ document.addEventListener("DOMContentLoaded", function() {
             .appendChild(div)
     showNotesContainer.classList.add("not-visible")         
   }
-
-
-
-  // return emojiReturn
-
 });
 
 
