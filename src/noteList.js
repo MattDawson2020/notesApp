@@ -13,7 +13,7 @@ class NoteList {
   }
 
   createNote(title, body) {
-    const note = new Note(title, body , this.index++);
+    const note = new Note(title, body , this.index += 1);
     return note
   }
 

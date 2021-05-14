@@ -9,12 +9,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   document.getElementById("submitButton").addEventListener("click", function() {
 
-  });
-
-  document.getElementById("submitButton").addEventListener("click", function() {
-    
-
-
     function getEmojiData(emojiTitle, emojiText) {
       fetch ("https://makers-emojify.herokuapp.com/", {
         method: 'POST',
@@ -68,48 +62,57 @@ document.addEventListener("DOMContentLoaded", function() {
     showNotesContainer.classList.remove("not-visible")
   })
 
+    expandSelectedNote();
 
-  expandSelectedNote();
-
-  function expandSelectedNote(){
-    window.addEventListener("hashchange", showCurrentNote);
-  }
-
-  function showCurrentNote() {
-    showSingleNote(getNoteByTitle(window.location));
-  }
-
-  function getNoteByTitle(location) {
-    return location.hash.split('#')[1];
-  }
-  
-  function showSingleNote(note) {
-    let noteTitle = document.createElement('h3')
-    let noteBody = document.createElement('p')
-    let div = document.createElement('div');
-    let link = document.createElement('a')
-  
-    let currentNote;
-
-    function findFunction(fred){
-      if(fred.id == location.hash.split('#')[1]) {
-        currentNote = fred
-      }
+    function expandSelectedNote(){
+      window.addEventListener("hashchange", showCurrentNote);
     }
 
-    notesAvailable.forEach(findFunction)
-    noteTitle.textContent = currentNote.title
-    noteBody.textContent = currentNote.body
-    link.innerText = "Link"
-    div.appendChild(noteTitle)
-    div.appendChild(noteBody)
-    div.appendChild(link)
-    console.log(div)
-    div.style['backgroundColor'] = 'yellow'
-    document.getElementById('singleNote')
-            .appendChild(div)
-    showNotesContainer.classList.add("not-visible")         
-  }
+    function showCurrentNote() {
+      showSingleNote(getNoteByTitle(window.location));
+    }
+
+    function getNoteByTitle(location) {
+      return location.hash.split('#')[1];
+    }
+    
+    function showSingleNote(note) {
+
+      let currentNote;
+
+      function findFunction(fred){
+        if(fred.id == location.hash.split('#')[1]) {
+          currentNote = fred
+          console.log(fred)
+        } else {
+          console.log(fred.id + "fred id")
+          console.log(location.hash.split('#')[1] + "hash")
+          console.log('fail')
+        }
+      }
+
+      notesAvailable.forEach(findFunction)
+
+      let noteTitle = document.createElement('h3')
+      let noteBody = document.createElement('p')
+      let div = document.createElement('div');
+      let link = document.createElement('a')
+
+
+      noteTitle.textContent = currentNote.title
+      noteBody.textContent = currentNote.body
+      link.innerText = "Back"
+      link.setAttribute('href', '/index.html')
+      div.appendChild(noteTitle)
+      div.appendChild(noteBody)
+      div.appendChild(link)
+      console.log(div)
+      console.log(div.link)
+      div.style['backgroundColor'] = 'yellow'
+      document.getElementById('singleNote')
+              .appendChild(div)
+      showNotesContainer.classList.add("not-visible")         
+    }
 });
 
 
