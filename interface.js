@@ -88,7 +88,31 @@ document.addEventListener("DOMContentLoaded", function() {
     showNotesContainer.classList.add("not-visible")
           
   }
+  let emojiText = ":fire:";
+
+  function getEmojiData(emojiText) {
+    fetch ("https://makers-emojify.herokuapp.com/", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({"text": emojiText}),
+    })
+    .then((response) => response.json())
+    .then(data => {
+      console.log(data.emojified_text)
+    })
+    };
+
+  getEmojiData(emojiText);
+  let emojiReturn = data.emojified_text
+  return emojiReturn
+
+
+    
 
 });
+
+
 
 
