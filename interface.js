@@ -8,23 +8,47 @@ document.addEventListener("DOMContentLoaded", function() {
   // noteList.storeNote(notes2);
 
   document.getElementById("submitButton").addEventListener("click", function() {
-    let title = document.getElementById("titleBox").value;
-    let body = document.getElementById("bodyBox").value;
-    // const note = new Note(title, body);
-    let note = noteList.createNote(title, body);
-    noteList.storeNote(note);
-    document.getElementById("titleBox").value = '';
-    document.getElementById("bodyBox").value = '';
+
   });
 
   document.getElementById("submitButton").addEventListener("click", function() {
-    let noteTitle = document.createElement('h3')
-    let noteBody = document.createElement('p')
-    let div = document.createElement('div');
-    let link = document.createElement('a')
     
 
+
+    function getEmojiData(emojiTitle, emojiText) {
+      fetch ("https://makers-emojify.herokuapp.com/", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({"text": emojiText}),
+        })
+          .then((response) => response.json())
+          .then(data => {
+           console.log(data.emojified_text)
+           let newNote = noteList.createNote(emojiTitle, data.emojified_text);
+           createDiv(newNote)
+        })
+      };    
+      
+      
+      let title = document.getElementById("titleBox").value;
+      let body = document.getElementById("bodyBox").value;
+
+      getEmojiData(title, body)
+
+      let note = noteList.createNote(title, body);
+      noteList.storeNote(note);
+      document.getElementById("titleBox").value = '';
+      document.getElementById("bodyBox").value = '';
+    
+
+
     function createDiv(note) {
+      let noteTitle = document.createElement('h3')
+      let noteBody = document.createElement('p')
+      let div = document.createElement('div');
+      let link = document.createElement('a')
       noteTitle.textContent = note.title
       noteBody.textContent = note.body
       link.setAttribute('href', `#${note.id}`)
@@ -33,11 +57,18 @@ document.addEventListener("DOMContentLoaded", function() {
       div.appendChild(noteBody)
       div.appendChild(link)
       div.style['backgroundColor'] = 'yellow'
-      
       showNotesContainer.appendChild(div)
+      console.log(`div made ${note.body}`)
     }
+
+
+  
+    // let emojiText = ":fire: is on fire";
+  
+    // let emojiReturn = data.emojified_text
+    // getEmojiData(emojiText);
     showNotesContainer.classList.add("not-visible")
-    notesAvailable.forEach(createDiv)
+    // notesAvailable.forEach(createDiv)
   });
 
   document.getElementById("showNotes").addEventListener('click', function() {
@@ -74,7 +105,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     notesAvailable.forEach(findFunction)
-
     noteTitle.textContent = currentNote.title
     noteBody.textContent = currentNote.body
     link.innerText = "Link"
@@ -85,31 +115,12 @@ document.addEventListener("DOMContentLoaded", function() {
     div.style['backgroundColor'] = 'yellow'
     document.getElementById('singleNote')
             .appendChild(div)
-    showNotesContainer.classList.add("not-visible")
-          
+    showNotesContainer.classList.add("not-visible")         
   }
-  let emojiText = ":fire:";
-
-  function getEmojiData(emojiText) {
-    fetch ("https://makers-emojify.herokuapp.com/", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({"text": emojiText}),
-    })
-    .then((response) => response.json())
-    .then(data => {
-      console.log(data.emojified_text)
-    })
-    };
-
-  getEmojiData(emojiText);
-  let emojiReturn = data.emojified_text
-  return emojiReturn
 
 
-    
+
+  // return emojiReturn
 
 });
 
