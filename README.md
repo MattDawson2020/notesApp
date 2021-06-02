@@ -1,3 +1,28 @@
+# Maker's Week 7: Weekly challenge
+This challenge was the seventh weekly challenge and the second group based project.
+We worked in a three to build this project.
+
+The learning objectives for this week were:
+
+* Build a dynamic single page app using only Pure JS
+* Request and use data from an external API
+* Explain that libraries are code 
+
+Successes
+-----
+
+* I managed to (somewhat accidentally) create a functioning test framework during a lunch time while trying to make a matcher, this framework 
+    also allowed you to load tests into a TestSuite and run them all when the browser opened
+* By doing this the concept of a library completely changed in my mind, and I see that I could (with time) write one myself
+
+
+
+To improve
+-----
+* The note creation was fragmented and should have been enclosed in a separate function, this way they could be created as hidden divs and then revealed later
+
+
+
 THE DREAM TEAM CORPORATION'S NOTEAPP <br />
 *** Where people start to notice the notes you're notating ***
 
