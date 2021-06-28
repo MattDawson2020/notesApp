@@ -20,9 +20,10 @@ Successes
 To improve
 -----
 * The note creation was fragmented and should have been enclosed in a separate function, this way they could be created as hidden divs and then revealed later
+* Correctly enclosed note creation function would have allowed the same function to be reused but with modifications to have a single note show on click
 
 
-
+-----
 THE DREAM TEAM CORPORATION'S NOTEAPP <br />
 *** Where people start to notice the notes you're notating ***
 
